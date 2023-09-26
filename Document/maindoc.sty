@@ -1,0 +1,22 @@
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+% Page style for title page (no page numbering)
+\fancypagestyle{titlepage}{
+  \fancyhf{} % Clear header and footer
+  \renewcommand{\headrulewidth}{0pt} % No header rule
+  \cfoot{} % Clear center footer
+}
+
+\fancypagestyle{tocpage}{
+  \fancyhf{} % Clear header and footer
+  \renewcommand{\headrulewidth}{0pt} % No header rule
+  \cfoot{} % Clear center footer
+}
+
+% Page style for the rest of the document (page numbering at the bottom)
+\fancypagestyle{maincontent}{
+  \fancyhf{} % Clear header and footer
+  \renewcommand{\headrulewidth}{0pt} % No header rule
+  \cfoot{\thepage} % Page number at the center footer
+}

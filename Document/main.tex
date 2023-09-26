@@ -1,26 +1,34 @@
 \documentclass{article}
+\usepackage{maindoc}
 
-\usepackage{graphicx}
 
 \begin{document}
 
-% Add a title and author
+% Title Page (no page numbering)
+\thispagestyle{titlepage}
 \title{Urodynamics Without Borders Guide}
-\author{MJ}
+\author{..}
 \date{\today}
 \maketitle
-
-
 \clearpage
 
+
+\thispagestyle{titlepage}
 \tableofcontents
+\clearpage % Start new page
 
-\clearpage
+\pagestyle{maincontent} % Apply main content style
 
+\input{Sections/Theory/TheoryChapter.tex}
 
 \input{Sections/Manufacturing/ManufacturingChapter.tex}
 
-\section{efdverwv}
-hgdtn
+\input{Sections/Software/SoftwareChapter.tex}
+
+\input{Sections/Testing/TestingChapter.tex}
+
+\input{Sections/ClinicalUse/ClinicalUseChapter.tex
+}
+\input{Sections/Appendices/AppendicesChapter.tex}
 
 \end{document}
