@@ -1,5 +1,7 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+\usepackage{csvsimple}
+\usepackage{float}
 
 % Page style for title page (no page numbering)
 \fancypagestyle{titlepage}{
@@ -20,3 +22,12 @@
   \renewcommand{\headrulewidth}{0pt} % No header rule
   \cfoot{\thepage} % Page number at the center footer
 }
+
+% add table
+\NewDocumentCommand{\addTable}{ m m }{%
+  \begin{table}[H]
+    \centering
+    \csvautotabular[]{#1}
+    \caption{#2}
+  \end{table}
+  }
