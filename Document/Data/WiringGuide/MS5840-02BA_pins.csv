@@ -1,0 +1,5 @@
+Pin,Wire
+1,GND
+2,VCC
+3,SCK
+4,SDA
