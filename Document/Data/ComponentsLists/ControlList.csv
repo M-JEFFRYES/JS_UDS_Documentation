@@ -1,0 +1,15 @@
+Component,Quantity,Per Unit Cost(USD),Total Cost (USD)
+Main board PCB,1,0,0
+Mains AC to DC Plug,1,0,0		
+DC connector mount,1,0,0		
+DC barrel jack mount,1,0,0		
+Buck Converter,2,0,0		
+Micro-USB mount,1,0,0		
+Arduino Nano,1,0,0		
+TCA9548A Multiplexer,1,0,0		
+1k Ohm Resistor,6,0,0	
+PWM Circuit ,1,0,0	
+HX711 amplifier,2,0,0
+Male 4 pin DIN connector,5,0,0		
+Female 4 pin DIN connector,5,0,0		
+Wire 4-core,1 meter,0,0		
