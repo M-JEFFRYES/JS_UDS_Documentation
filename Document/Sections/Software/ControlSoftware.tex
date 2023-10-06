@@ -1,0 +1,45 @@
+\subsection{Control Software}
+
+The \hardwareswrepo \ repository stores all scripts required to simulate signals, test sub-systems and perform clinical urodynamics. 
+
+\subsubsection{Control programs available}
+\begin{itemize}
+    \item Simulation
+    \begin{itemize}
+        \item \pressuresimrepo \ - Simulates pressure sensor input
+        \item \pumpsimrepo \ - Simulates infusion pump
+        \item \visimrepo \ - Simulates volume infused
+        \item \vvsimrepo \ - Simulates volume void
+        \item \investigationsimrepo \ - Simulates clinical investigation
+    \end{itemize}
+    \item Testing
+    \begin{itemize}
+        \item \pressuretestrepo \ - Pressure configuration testing
+        \item \pumptestrepo \ - Pump testing
+        \item \vitestrepo \ - Volume infused testing
+        \item \vvtestrepo \ - Volume void testing
+        \item 
+    \end{itemize}
+    \item \fullclinicalrepo \ - Performing clincial investigations
+\end{itemize}
+
+\subsubsection{Requirements}
+\begin{enumerate}
+    \item Install VS Code
+    \item Install the PlatformIO extension for VS Code
+    \item Download the code repository from \hardwareswrepo
+    \item Manufacture the urodynamics system
+\end{enumerate}
+
+\subsubsection{Loading scripts onto the hardware}
+\begin{enumerate}
+    \item Connect the hardware to via USB
+    \item Open the subdirectory of the control program you would like to upload
+    \item Using the PlatformIO extension
+    \begin{enumerate}
+        \item Build the script
+        \item Upload the script 
+    \end{enumerate}
+\end{enumerate}
+
+\clearpage
