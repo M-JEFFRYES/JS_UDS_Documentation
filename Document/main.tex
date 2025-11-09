@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{maindoc}
+\usepackage{amsmath}
 
 \begin{document}
 
@@ -12,12 +13,15 @@
 \clearpage
 
 
+
 \thispagestyle{titlepage}
 \tableofcontents
 \clearpage % Start new page
 
 \pagestyle{maincontent} % Apply main content style
 
+\input{Equations/sampling.tex}
+\input{Equations/pressure.tex}
 \input{Sections/Introduction/IntroductionChapter.tex}
 
 \input{Sections/Theory/TheoryChapter.tex}

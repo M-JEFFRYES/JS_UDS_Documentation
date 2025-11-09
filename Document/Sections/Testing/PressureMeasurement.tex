@@ -1,0 +1,158 @@
+\subsection{Pressure Measurement Configuration}
+
+\subsubsection{Purpose}
+This protocol defines the validation tests used to verify the accuracy, range, and performance of the pressure measurement system used in the Urodynamics Without Borders system. It ensures that the bladder (\pressurevesicalsymbol) and abdominal (\pressureabdominalsymbol) pressure channels provide reliable and reproducible measurements.
+
+\subsubsection{Scope}
+Applies to all pressure-measuring channels (\pressurevesicalsymbol and \pressureabdominalsymbol) and the associated system controller software. Testing should be completed after the urodynamics system has been assembled and before it is used clinically.
+
+\subsubsection{Test Criteria}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Parameter} & \textbf{Acceptance Criteria} \\
+        \hline
+        Accuracy & $\pm 3$\% of the true value or $\pm 1$ \cmhtwosymbol \\
+        \hline
+        Range & $-30$ to $250$ \cmhtwosymbol \\
+        \hline
+        Bandwidth & The sampling rate of both channels should be $\geq 3$ Hz. \\
+        \hline
+        Reference level reset & Equipment must allow reference levels to be reset. \\
+        \hline
+    \end{tabular}
+    \caption{Pressure Measurement Test Criteria}
+    \label{tab:pressure_test_criteria}
+\end{table}
+
+
+\subsubsection{Required Equipment}
+Confirm the pressure system has been manufactured correctly (according to section 4.4.3).
+Additional test equipment required:
+\begin{itemize}
+    \item Stand ($\geq1m$) and clamp for catheter outlet positioning
+    \item Ruler or scale ($mm$ precision)
+    \item Syringe and tubing to create a water column
+    \item Water (preferably distilled)
+\end{itemize}
+\textbf{Each validation step must be repeated for both \pressurevesicalsymbol and \pressureabdominalsymbol channels.} \\
+
+Maintain an error log during testing for observations or anomalies (e.g. drift, air bubbles, instability,
+or unexpected readings).
+
+\subsubsection{Validation Procedures}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Figures/Testing/presure_measurement_setup.png}
+    \caption{Pressure Measurement Test Setup}
+    \label{fig:pressure_measurement_setup}
+\end{figure}
+
+\subsubsection*{Pre-test Setup}
+This section is to confirm that the system has been set-up and manufactured correctly. It will confirm if the reference level reset is functioning correctly, and that baseline drift is minimal.
+
+\begin{enumerate}
+    \item Verify all connections by visual inspection (DIN connectors, Tubing, sensors etc.)
+    \item Fill and prime the system with water (priming the system), ensuring no visible air bubbles remain.
+    \item Align the transducer diaphragm with the catheter outlet (same vertical level). \textit{Note: Clinically, this will be the height of the superior border. For testing it just needs to be in line with the outlet of the catheter.}
+    \item Use 'Zero channels' operation to reset baselines.
+\end{enumerate}
+
+\subsubsection*{Zero reference reset check}
+\begin{enumerate}
+    \item Set \headwatersymbol to zero and re-zero the system.
+    \item Confirm both pressure channels read $0 \pm 1$ \cmhtwosymbol, wait $10$ seconds and check that the readings remain stable ($\leq \pm 1$ \cmhtwosymbol \space drift at rest).
+    \item Move the catheter outlets $10 cm$ above the syringe inlet (generating a pressure equal to $+10$ \cmhtwosymbol). \textit{Confirm the system reads $+10$ \cmhtwosymbol $\pm 1$ \cmhtwosymbol.}
+    \item \textbf{Re-zero} the system
+    \item The reading should now display $0$ \cmhtwosymbol.
+    \item Now re-apply another pressure change, by increasing the head by another $+10 cm$ (\headwatersymbol $= 20cm$ from original position). \textit{The reading should display $+10$ \cmhtwosymbol (i.e. the new offset is correctly measured relative to the new zero point).}
+\end{enumerate}
+
+
+\subsubsection*{Static accuracy test}
+Purpose: To test whether the system accurately measures a change in static pressure by varying the head of water (\headwatersymbol).
+\begin{enumerate}
+    % \item Using the same set-up, as shown in figure \ref{fig:pressure_measurement_setup}
+    \item Vary \headwatersymbol \space from $10 - 100$ \cmhtwosymbol \space in $10$ \cmhtwosymbol \space increments
+    \item Record and document the corresponding measured pressures for each height (for both \pressurevesicalsymbol \space and \pressureabdominalsymbol \space channels)
+    \item Compute mean difference and standard deviation between true and measured pressures.
+    \item Repeat the test three times
+    \item Plot a Bland-Altman graph to assess accuracy (see figure \ref{fig:pressure_testing_bland_altman_example} )
+
+\end{enumerate}
+\textbf{Acceptance:} Mean difference $\leq \pm 1$ \cmhtwosymbol; SD $\leq \pm 0.5$ \cmhtwosymbol.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Figures/Testing/presure_measurement_bland_altman.png}
+    \caption{Example Bland-Altman plot for static accuracy test. The solid line represents the mean difference, while the blue dashed lines indicate the limits of agreement ($mean \pm 1.96*SD$). The black dashed line represents the ICS guideline.}
+    \label{fig:pressure_testing_bland_altman_example}
+\end{figure}
+
+\subsubsection*{Range Verification}
+
+\begin{enumerate}
+    \item Repeat the static accuracy test at values $-30$ and $250$ \cmhtwosymbol
+    \item Verify that the sensor and the control system function correctly across their full range without:
+    \begin{itemize}
+        \item Saturation (so the signal reaching a max/min limit)
+        \item Clipping (peaks abruptly flattened) 
+        \item Non-linearity near the extremes.
+    \end{itemize}
+\end{enumerate}
+
+
+If using a weight for the upper limit:
+Use the following equations to calculate the mass that needs to be applied to give $250$ \cmhtwosymbol \space (it will vary depending on diameter of cylinder):
+\forceequation
+\circleareaquation
+\pressureequation
+
+
+\subsubsection*{Bandwidth/Sampling rate validation}
+\begin{enumerate}
+    \item  Sampling frequency
+    \begin{enumerate}
+        \item Operating both channels under their normal recording mode.
+        \item Export a segment of the pressure data (30 to 40 seconds including timestamps)
+        \item Calculate the average time interval between the samples ($\Delta t$) \deltatimecalculation
+        \item Calculate the sampling frequency ($f$)  \frequencycalculation
+        \item Repeat this 5 times to confirm consistency
+        \item Verify average sampling frequency $\geq 3 Hz$
+    \end{enumerate}
+    \item Dynamic response
+    \begin{enumerate}
+        \item Operating both channels under their normal recording mode.
+        \item Simulate a rapid pressure change (e.g. tap the catheter outlet or quickly move it vertically by a small amount).
+        \item Check whether the output pressure waveform is preserved (no excessive smoothing) and amplitudes and gradients are reasonable.
+    \end{enumerate}
+\end{enumerate}
+
+
+\subsubsection*{Verification of Pdet calculation}
+Purpose: Confirm that the detrusor pressure calculation is implemented correctly in the software. \pressuredetrusorequation
+
+\begin{enumerate}
+    \item Hold one channel constant (e.g. \pressureabdominalsymbol $= 0$ \cmhtwosymbol)
+    \item Vary the other channel (e.g. \pressurevesicalsymbol) and record the output
+    \item Record both channel readings and the displayed \pressuredetrusorsymbol.
+    \item Confirm whether the systems output of value of \pressuredetrusorsymbol \space matches that of the \pressurevesicalsymbol $-$ \pressureabdominalsymbol \space values
+    \item Repeat three times, altering \headwatersymbol
+\end{enumerate}
+
+\textit{Note: this should only be done once the values of \pressurevesicalsymbol \space and \pressureabdominalsymbol \space have been validated.}
+
+\subsubsection{Reporting of results}
+Document the results of all tests, including:
+\begin{itemize}
+    \item Date of testing
+    \item Personnel involved
+    \item Equipment used (including calibration status)
+    \item Environmental conditions (e.g. temperature, humidity)
+    \item Status (pass/fail)
+\end{itemize}
+
+\chapterauthorsbox{\authmj and \authem}
+\clearpage
