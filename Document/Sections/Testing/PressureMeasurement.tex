@@ -33,6 +33,8 @@ Additional test equipment required:
 \begin{itemize}
     \item Stand ($\geq1m$) and clamp for catheter outlet positioning
     \item Ruler or scale ($mm$ precision)
+    \item Syringe and tubing to create a water column
+    \item Water (preferably distilled)
 \end{itemize}
 \textbf{Each validation step must be repeated for both \pressurevesicalsymbol and \pressureabdominalsymbol channels.} \\
 
@@ -60,27 +62,34 @@ This section is to confirm that the system has been set-up and manufactured corr
 
 \subsubsection*{Zero reference reset check}
 \begin{enumerate}
-    \item Set hw to zero and re-zero the system.
-    \item Confirm both pressure channels read $0 \pm 1$ \cmhtwosymbol and remain stable ($\leq \pm 1$ \cmhtwosymbol drift at rest).
-    \item Move the catheter outlets $10 cm$ above the syringe inlet (generating a pressure equal to $+10$ \cmhtwosymbol [appendix I]). \textit{Confirm the system reads $+10$ \cmhtwosymbol $\pm 1$ \cmhtwosymbol.}
+    \item Set \headwatersymbol to zero and re-zero the system.
+    \item Confirm both pressure channels read $0 \pm 1$ \cmhtwosymbol, wait $10$ seconds and check that the readings remain stable ($\leq \pm 1$ \cmhtwosymbol \space drift at rest).
+    \item Move the catheter outlets $10 cm$ above the syringe inlet (generating a pressure equal to $+10$ \cmhtwosymbol). \textit{Confirm the system reads $+10$ \cmhtwosymbol $\pm 1$ \cmhtwosymbol.}
     \item \textbf{Re-zero} the system
     \item The reading should now display $0$ \cmhtwosymbol.
-    \item Now re-apply another pressure change, by increasing the head by another $+10 cm$ (hw = 20cm from original position). \textit{The reading should display $+10$ \cmhtwosymbol (i.e. the new offset is correctly measured relative to the new zero point).}
+    \item Now re-apply another pressure change, by increasing the head by another $+10 cm$ (\headwatersymbol $= 20cm$ from original position). \textit{The reading should display $+10$ \cmhtwosymbol (i.e. the new offset is correctly measured relative to the new zero point).}
 \end{enumerate}
 
 
 \subsubsection*{Static accuracy test}
-Purpose: To test whether the system accurately measure's a change in static pressure by varying the head of water (\headwatersymbol).
+Purpose: To test whether the system accurately measures a change in static pressure by varying the head of water (\headwatersymbol).
 \begin{enumerate}
     % \item Using the same set-up, as shown in figure \ref{fig:pressure_measurement_setup}
-    \item Vary \headwatersymbol from $10 - 100$ \cmhtwosymbol in $10$ \cmhtwosymbol increments
-    \item Record and document the corresponding measured pressures for each height (for both \pressurevesicalsymbol and \pressureabdominalsymbol channels)
+    \item Vary \headwatersymbol \space from $10 - 100$ \cmhtwosymbol \space in $10$ \cmhtwosymbol \space increments
+    \item Record and document the corresponding measured pressures for each height (for both \pressurevesicalsymbol \space and \pressureabdominalsymbol \space channels)
     \item Compute mean difference and standard deviation between true and measured pressures.
     \item Repeat the test three times
-    \item Plot a Bland-Altman graph to assess accuracy (see figure 2)
+    \item Plot a Bland-Altman graph to assess accuracy (see figure \ref{fig:pressure_testing_bland_altman_example} )
 
 \end{enumerate}
 \textbf{Acceptance:} Mean difference $\leq \pm 1$ \cmhtwosymbol; SD $\leq \pm 0.5$ \cmhtwosymbol.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Figures/Testing/presure_measurement_bland_altman.png}
+    \caption{Example Bland-Altman plot for static accuracy test. The solid line represents the mean difference, while the blue dashed lines indicate the limits of agreement ($mean \pm 1.96*SD$). The black dashed line represents the ICS guideline.}
+    \label{fig:pressure_testing_bland_altman_example}
+\end{figure}
 
 \subsubsection*{Range Verification}
 
@@ -96,7 +105,7 @@ Purpose: To test whether the system accurately measure's a change in static pres
 
 
 If using a weight for the upper limit:
-Use the following equations to calculate the mass that needs to be applied to give $250$ \cmhtwosymbol (it will vary depending on diameter of cylinder):
+Use the following equations to calculate the mass that needs to be applied to give $250$ \cmhtwosymbol \space (it will vary depending on diameter of cylinder):
 \forceequation
 \circleareaquation
 \pressureequation
@@ -129,11 +138,11 @@ Purpose: Confirm that the detrusor pressure calculation is implemented correctly
     \item Hold one channel constant (e.g. \pressureabdominalsymbol $= 0$ \cmhtwosymbol)
     \item Vary the other channel (e.g. \pressurevesicalsymbol) and record the output
     \item Record both channel readings and the displayed \pressuredetrusorsymbol.
-    \item Confirm whether the systems output of value of \pressuredetrusorsymbol matches that of the \pressurevesicalsymbol $-$ \pressureabdominalsymbol values
+    \item Confirm whether the systems output of value of \pressuredetrusorsymbol \space matches that of the \pressurevesicalsymbol $-$ \pressureabdominalsymbol \space values
     \item Repeat three times, altering \headwatersymbol
 \end{enumerate}
 
-\textit{Note: this should only be done once the values of \pressurevesicalsymbol and \pressureabdominalsymbol have been validated.}
+\textit{Note: this should only be done once the values of \pressurevesicalsymbol \space and \pressureabdominalsymbol \space have been validated.}
 
 \subsubsection{Reporting of results}
 Document the results of all tests, including:

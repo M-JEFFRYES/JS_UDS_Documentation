@@ -1,8 +1,20 @@
 \newcommand{\cmhtwosymbol}{%
-    \ensuremath{\text{cmH}_2\text{O}}%v
+    \ensuremath{\text{cmH}_2\text{O}}%
 }
 \newcommand{\headwatersymbol}{%
-    \ensuremath{H_w}
+    \ensuremath{H_w}%
+}
+\newcommand{\waterdensityconstant}{%
+    \begin{equation}
+    \rho = 1000 \text{ kg/m}^3
+    \label{eq:waterdensityconstant}
+    \end{equation}
+}
+\newcommand{\gravityconstant}{%
+    \begin{equation}
+    g = 9.81 \text{ m/s}^2
+    \label{eq:gravityconstant}
+    \end{equation}
 }
 
 \newcommand{\forceequation}{%
@@ -27,7 +39,7 @@
 
 \newcommand{\pressurefluidequation}{%
     \begin{equation}
-    P=\rho g h
+    P=\rho g h_w
     \label{eq:pressurefluidequation}
     \end{equation}
 }
@@ -39,7 +51,7 @@
     \ensuremath{P_{\mathrm{abd}}}%
 }
 \newcommand{\pressuredetrusorsymbol}{%
-    \ensuremath{P_{\mathrm{det}}}
+    \ensuremath{P_{\mathrm{det}}}%
 }
 
 \newcommand{\pressuredetrusorequation}{
