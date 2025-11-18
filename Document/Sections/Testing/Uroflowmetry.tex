@@ -1,4 +1,212 @@
 \subsection{Uroflowmetry Testing Configuration}
 
-\chapterauthorsbox{\authmj}
+
+\subsubsection{Purpose}
+This protocol defines the validation tests used to verify the accuracy, range, and performance of the uroflowmetry sub-system used in the Urodynamics Without Borders system. It ensures that the subsystem accurately measures the voided volume and flow rate of fluid during testing, and that these values are correctly displayed by the user interface (UI) software.
+
+\subsubsection{Scope}
+Applies to all uroflowmetry hardware and software components, including:
+\begin{itemize}
+    \item The uroflowmetry device setup (cantilever load cell and mechanical assembly)
+    \item The signal conditioning and UI
+\end{itemize}
+
+Testing must be completed following system assembly and prior to clinical use.
+
+\subsubsection{Test Criteria}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Parameter} & \textbf{Acceptance Criteria} \\
+        \hline
+        Flow rate (Q) measurement 
+        & Accuracy: $\pm 1$ mL/s \\
+        & Range: $0$--$50$ mL/s \\
+        & Minimum flow recordable: $\leq 1$ mL/s \\
+        \hline
+        Volume void measurement 
+        & Accuracy: greater of $\pm 3\%$ of true value or $\pm 2$ mL \\
+        & Range: $0$--$1000$ mL \\
+        \hline
+        Maximum recording duration 
+        & $\geq 120$ seconds \\
+        \hline
+    \end{tabular}
+    \caption{Uroflowmetry Test Criteria}
+    \label{tab:uroflow_test_criteria}
+\end{table}
+
+\subsubsection{Required Equipment}
+
+Confirm the uroflowmetry system has been manufactured correctly (see Section \ref{sec:uroflow_manufacture} for details).
+
+Additional test equipment required:
+\begin{itemize}
+    \item Calibrated digital scales (precision $\pm 1$ g or better)
+    \item Gravity-fed infusion tank (wider tanks preferred to maintain constant head pressure) with:
+    \begin{itemize}
+        \item Flexible pipe width (Pw) $\approx 6$–$7$ mm
+        \item Adjustable flow clamp/valve (to vary flow rate)
+    \end{itemize}
+    \item Infusion fluid (density $\approx 1.00$ g/mL; water at room temperature is sufficient)
+    \item Graduated cylinder or volumetric flask (1000 mL minimum)
+    \item Stopwatch or timing software
+    \item Stand and clamp for securing container
+\end{itemize}
+
+Maintain an error log throughout testing for any observations or anomalies (e.g. unexpected readings).
+
+\subsubsection{Validation Procedures}
+
+Set up the system as shown in Figure \ref{fig:uroflow_setup}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Figures/Testing/uroflow_setup.png}
+    \caption{Example set-up for uroflowmetry testing.}
+    \label{fig:uroflow_setup}
+\end{figure}
+
+\subsubsection*{(a) Pre-test Set-up}
+
+This section confirms that the system has been set up and manufactured correctly.
+
+\begin{itemize}
+    \item Verify all hardware connections and ensure the load cell and container are mounted securely.
+    \item Confirm that the UI software is communicating with the main board and displaying real-time force data  
+    (press down on the uroflowmetry device to check for a response).
+    \item Ensure the container is placed on the uroflowmetry system with no fluid present.
+    \item Re-zero the system (to set the baseline).
+    \item Confirm the system reads 0 mL/s flow rate.
+\end{itemize}
+
+\subsubsection*{(b) Volume Measurement Accuracy Test}
+
+\paragraph{Purpose:}  
+Confirm that the measured voided volume corresponds to the true volume.
+
+\paragraph{Procedure:}
+\begin{enumerate}
+    \item Place the empty collection container onto the uroflowmetry device.
+    \item Re-zero (tare) the system so the displayed volume is 0 mL.
+    \item Add known quantities of fluid (e.g., 100, 200, 400, 600, 800, 1000 mL) slowly into the container.
+    \item Independently verify the true added volume using a calibrated digital scale  
+          (1 g $\approx$ 1 mL for water-based fluid).
+    \item Record the system’s measured volume from the UI for each quantity.
+    \item Calculate the percentage error for each measurement:
+    \[
+        \text{Percentage error} = 
+        \frac{V_{\text{Measured}} - V_{\text{True}}}{V_{\text{True}}} \times 100\%.
+    \]
+    \item Repeat the full set of measurements three times.
+    \item Compute (and plot) the mean and standard deviation across repeats.
+\end{enumerate}
+
+\paragraph{Acceptance Criteria:}  
+Mean difference $\leq \pm 3\%$ or $\pm 2$ mL.
+
+\subsubsection*{(c) Flowrate Measurement Accuracy Test}
+
+\paragraph{Purpose:}  
+Verify that the flow rate calculations are accurate across the clinical range (0--50 mL/s).
+
+\paragraph{Procedure:}
+
+\begin{enumerate}
+    \item Set up the gravity-fed infusion system (see figure \ref{fig:uroflow_setup}) with a flexible outlet pipe discharging into the uroflowmetry container and re-zero the system.
+    \item Use an adjustable flow clamp to produce target flowrates of  
+    5, 10, 20, 30, 40, 50 mL/s.\\
+    \textit{Note: As a guide, estimate the head of water ($h_w$) and pipe width ($P_w$) needed to produce the desired floe rate using Torricelli’s Law (Appendix~\ref{appendix:torricelli}). }
+\end{enumerate}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Flow rate (mL/s)} & \textbf{$P_w$ (mm)} & \textbf{$h_w$ (mm)} \\ \hline
+        5  & 3      & 52  \\ \hline
+        10 & 4      & 66  \\ \hline
+        20 & 5      & 107 \\ \hline
+        30 & 5      & 243 \\ \hline
+        40 & 6      & 208 \\ \hline
+        50 & 6 or 7 & 325 or 175 (respectively)\\ \hline
+    \end{tabular}
+    \caption{Example flow rate estimates using Torricelli’s law}
+    \label{tab:flow_examples}
+\end{table}
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item Measure true flowrate over 20 seconds using:
+    \begin{itemize}
+        \item Volume or chnage of mass collected over time (graduated cylinder or scales),
+        \item A stopwatch.
+    \end{itemize}
+    True flowrate:
+    \[
+        Q_{\text{true}} = \frac{\text{Volume}}{\text{Time}}.
+    \]
+    \item Simultaneously record the system’s measured flowrate from the UI.
+    \item Repeat each test three times to confirm repeatability.
+    \item Compare measured vs.\ true flowrate at each target flowrate.
+    \item Compute (and plot) the mean and standard deviation across repeats (see figure \ref{fig:flowrate_plot} for an example).
+\end{enumerate}
+
+\paragraph{Acceptance Criteria}  
+Mean difference $\leq \pm 1$ mL/s.
+
+ 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Figures/Testing/flowrate_plot.png}
+    \caption{Example plot for flow rate testing}
+    \label{fig:flowrate_plot}
+\end{figure}
+
+
+\subsubsection*{(d) Minimum Flowrate Accuracy Test}
+
+\paragraph{Purpose:}  
+Validate that the system can accurately record a flow rate of 1 mL/s.
+
+\paragraph{Procedure:}
+\begin{enumerate}
+    \item Repeat the flowrate measurement procedure with a target of 1 mL/s.\\
+    \textit{Note: This can be achieved using the gravity-fed infusion system with restricted outlet clamp.  \\
+    Reference values:  
+    $P_w = 1$ mm, $h_w = 169$ mm $\Rightarrow$ approx.\ 1 mL/s.}
+\end{enumerate}
+
+\subsubsection*{(e) Maximum Recording Duration Test}
+
+\paragraph{Purpose:}  
+Verify that the system can continuously record volume/time data for at least 120 seconds.
+
+\paragraph{Procedure:}
+\begin{enumerate}
+    \item Start a continuous, slow fluid flow (e.g.\ $\leq 8$ mL/s \textit{– to ensure the max volume isn’t over 1000mL}).
+    \item Allow the system to record for at least 10 minutes.
+    \item Observe the live display on the UI, look for any drift, discontinuities or data loss.
+    \item Confirm that the full volume and time are recorded accurately.
+\end{enumerate}
+
+\paragraph{Acceptance Criteria:}
+\begin{itemize}
+    \item Maximum recording duration $\geq 120$ seconds (document maximum time tested).
+    \item No signal saturation, clipping, or discontinuity.
+\end{itemize}
+
+\subsubsection*{Results Documentation}
+Include:
+\begin{itemize}
+    \item Date
+    \item Operator
+    \item Pass/fail outcome for each of the above tests
+    \item Signature
+\end{itemize}
+
+\chapterauthorsbox{\authmj and \authem}
 \clearpage
