@@ -18,3 +18,65 @@ The pressures used in all calculations are the gauge pressures (relative to atmo
 
 
 \chapterauthorsbox{\authmj and \authem}
+
+
+
+\subsection{Uroflowmetry Measurement}
+
+\subsubsection{Hydrostatic Pressure Relation}
+\label{appendix:hydrostatic}
+
+For these tests, assume that 1 cm $\approx$ 1 cmH\textsubscript{2}O using:
+\[
+    P = \rho g h_w
+\]
+where  
+\begin{tabular}{ll}
+$P$   & hydrostatic pressure (cmH\textsubscript{2}O) \\
+$\rho$ & fluid density ($\approx 1000$ kg/m\textsuperscript{3}) \\
+$g$   & 9.81 m/s\textsuperscript{2} \\
+$h_w$ & height difference (m) \\
+\end{tabular}
+
+\subsubsection{Torricelli’s Law}
+\label{appendix:torricelli}
+
+Torricelli’s law describes jet speed based on fluid height:
+\[
+    v = C_d \sqrt{2 g h_w}
+\]
+where  
+$v$ = outlet velocity,  
+$C_d$ = discharge coefficient (0.6--0.8).
+
+Flow rate:
+\[
+    Q = A v = C_d A \sqrt{2 g h_w}.
+\]
+
+Solving for $h_w$:
+\[
+    h_w = \frac{1}{2g} \left( \frac{Q_t}{C_d A} \right)^2.
+\]
+
+Example (50 mL/s, 5 mm tube, $C_d = 0.7$):
+\[
+A = \pi\left(\frac{0.005}{2}\right)^2 = 1.96 \times 10^{-5} \text{ m}^2,
+\]
+\[
+h_w = 0.68 \text{ m}.
+\]
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Flow rate (mL/s)} & \textbf{$P_w$ (mm)} & \textbf{$h_w$ (mm)} \\ \hline
+        10 & 4 & 66  \\ \hline
+        20 & 4 & 264 \\ \hline
+        30 & 5 & 243 \\ \hline
+        40 & 5 & 432 \\ \hline
+        50 & 6 & 325 \\ \hline
+    \end{tabular}
+    \caption{Example values from Torricelli’s law}
+\end{table}
