@@ -22,13 +22,13 @@ Testing must be completed following system assembly and prior to clinical use.
         \textbf{Parameter} & \textbf{Acceptance Criteria} \\
         \hline
         Flow rate (Q) measurement 
-        & Accuracy: $\pm 1$ mL/s \\
-        & Range: $0$--$50$ mL/s \\
-        & Minimum flow recordable: $\leq 1$ mL/s \\
+        & Accuracy: $\pm 1$ \flowrateunits \\
+        & Range: $0$--$50$ \flowrateunits \\
+        & Minimum flow recordable: $\leq 1$ \flowrateunits \\
         \hline
         Volume void measurement 
-        & Accuracy: greater of $\pm 3\%$ of true value or $\pm 2$ mL \\
-        & Range: $0$--$1000$ mL \\
+        & Accuracy: greater of $\pm 3\%$ of true value or $\pm 2$ \mlunits \\
+        & Range: $0$--$1000$ \mlunits \\
         \hline
         Maximum recording duration 
         & $\geq 120$ seconds \\
@@ -44,14 +44,14 @@ Confirm the uroflowmetry system has been manufactured correctly (see Section \re
 
 Additional test equipment required:
 \begin{itemize}
-    \item Calibrated digital scales (precision $\pm 1$ g or better)
+    \item Calibrated digital scales (precision $\pm 1$ \gunits\space or better)
     \item Gravity-fed infusion tank (wider tanks preferred to maintain constant head pressure) with:
     \begin{itemize}
-        \item Flexible pipe width (Pw) $\approx 6$–$7$ mm
+        \item Flexible pipe width (\pipewidthsymbol) $\approx 6$–$7$ \mmunits
         \item Adjustable flow clamp/valve (to vary flow rate)
     \end{itemize}
-    \item Infusion fluid (density $\approx 1.00$ g/mL; water at room temperature is sufficient)
-    \item Graduated cylinder or volumetric flask (1000 mL minimum)
+    \item Infusion fluid (density $\approx 1.00$ \densityunits; water at room temperature is sufficient)
+    \item Graduated cylinder or volumetric flask (1000 \mlunits\space minimum)
     \item Stopwatch or timing software
     \item Stand and clamp for securing container
 \end{itemize}
@@ -79,7 +79,7 @@ This section confirms that the system has been set up and manufactured correctly
     (press down on the uroflowmetry device to check for a response).
     \item Ensure the container is placed on the uroflowmetry system with no fluid present.
     \item Re-zero the system (to set the baseline).
-    \item Confirm the system reads 0 mL/s flow rate.
+    \item Confirm the system reads $0$ \flowrateunits\space flow rate.
 \end{itemize}
 
 \subsubsection*{(b) Volume Measurement Accuracy Test}
@@ -90,10 +90,10 @@ Confirm that the measured voided volume corresponds to the true volume.
 \paragraph{Procedure:}
 \begin{enumerate}
     \item Place the empty collection container onto the uroflowmetry device.
-    \item Re-zero (tare) the system so the displayed volume is 0 mL.
-    \item Add known quantities of fluid (e.g., 100, 200, 400, 600, 800, 1000 mL) slowly into the container.
+    \item Re-zero (tare) the system so the displayed volume is 0 \mlunits.
+    \item Add known quantities of fluid (e.g., 100, 200, 400, 600, 800, 1000 \mlunits) slowly into the container.
     \item Independently verify the true added volume using a calibrated digital scale  
-          (1 g $\approx$ 1 mL for water-based fluid).
+          (1 \gunits\space $\approx$ 1 \mlunits\space for water-based fluid).
     \item Record the system’s measured volume from the UI for each quantity.
     \item Calculate the percentage error for each measurement:
     \[
@@ -105,27 +105,27 @@ Confirm that the measured voided volume corresponds to the true volume.
 \end{enumerate}
 
 \paragraph{Acceptance Criteria:}  
-Mean difference $\leq \pm 3\%$ or $\pm 2$ mL.
+Mean difference $\leq \pm 3\%$ or $\pm 2$ \mlunits.
 
 \subsubsection*{(c) Flowrate Measurement Accuracy Test}
 
 \paragraph{Purpose:}  
-Verify that the flow rate calculations are accurate across the clinical range (0--50 mL/s).
+Verify that the flow rate calculations are accurate across the clinical range (0--50 \flowrateunits).
 
 \paragraph{Procedure:}
 
 \begin{enumerate}
     \item Set up the gravity-fed infusion system (see figure \ref{fig:uroflow_setup}) with a flexible outlet pipe discharging into the uroflowmetry container and re-zero the system.
     \item Use an adjustable flow clamp to produce target flowrates of  
-    5, 10, 20, 30, 40, 50 mL/s.\\
+    5, 10, 20, 30, 40, 50 \flowrateunits.\\
     \textit{Note: As a guide, estimate the head of water ($h_w$) and pipe width ($P_w$) needed to produce the desired floe rate using Torricelli’s Law (Appendix~\ref{appendix:torricelli}). }
 \end{enumerate}
-
+    
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
         \hline
-        \textbf{Flow rate (mL/s)} & \textbf{$P_w$ (mm)} & \textbf{$h_w$ (mm)} \\ \hline
+        \textbf{Flow rate (\flowrateunits)} & \textbf{$P_w$ (\mmunits)} & \textbf{$h_w$ (\mmunits)} \\ \hline
         5  & 3      & 52  \\ \hline
         10 & 4      & 66  \\ \hline
         20 & 5      & 107 \\ \hline
@@ -155,7 +155,7 @@ Verify that the flow rate calculations are accurate across the clinical range (0
 \end{enumerate}
 
 \paragraph{Acceptance Criteria}  
-Mean difference $\leq \pm 1$ mL/s.
+Mean difference $\leq \pm 1$ \flowrateunits.
 
  
 
@@ -170,14 +170,14 @@ Mean difference $\leq \pm 1$ mL/s.
 \subsubsection*{(d) Minimum Flowrate Accuracy Test}
 
 \paragraph{Purpose:}  
-Validate that the system can accurately record a flow rate of 1 mL/s.
+Validate that the system can accurately record a flow rate of 1 \flowrateunits.
 
 \paragraph{Procedure:}
 \begin{enumerate}
-    \item Repeat the flowrate measurement procedure with a target of 1 mL/s.\\
+    \item Repeat the flowrate measurement procedure with a target of 1 \flowrateunits.\\
     \textit{Note: This can be achieved using the gravity-fed infusion system with restricted outlet clamp.  \\
     Reference values:  
-    $P_w = 1$ mm, $h_w = 169$ mm $\Rightarrow$ approx.\ 1 mL/s.}
+    $P_w = 1$ \mmunits, $h_w = 169$ \mmunits $\Rightarrow$ approx.\ 1 \flowrateunits.}
 \end{enumerate}
 
 \subsubsection*{(e) Maximum Recording Duration Test}
@@ -187,7 +187,7 @@ Verify that the system can continuously record volume/time data for at least 120
 
 \paragraph{Procedure:}
 \begin{enumerate}
-    \item Start a continuous, slow fluid flow (e.g.\ $\leq 8$ mL/s \textit{– to ensure the max volume isn’t over 1000mL}).
+    \item Start a continuous, slow fluid flow (e.g.\ $\leq 8$ \flowrateunits\space \textit{– to ensure the max volume isn’t over 1000 \mlunits}).
     \item Allow the system to record for at least 10 minutes.
     \item Observe the live display on the UI, look for any drift, discontinuities or data loss.
     \item Confirm that the full volume and time are recorded accurately.
